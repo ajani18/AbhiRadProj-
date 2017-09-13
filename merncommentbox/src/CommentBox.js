@@ -1,11 +1,9 @@
 //CommentBox.js
-import React, { Component } from 'react';
-import CommentList from './CommentList';
-import CommentForm from './CommentForm';
-import axios from 'axios';
-import DATA from './data';
-import style from './style';
-
+import React, { Component } from ‘react’;
+import axios from ‘axios’;
+import CommentList from ‘./CommentList’;
+import CommentForm from ‘./CommentForm’;
+import style from ‘./style’;
 class CommentBox extends Component {
   constructor(props) {
     super(props);
@@ -13,14 +11,16 @@ class CommentBox extends Component {
     this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
-    this.handleCommentUpdate = this.handleCommentUpdate.bind(this); 
+    this.handleCommentUpdate = this.handleCommentUpdate.bind(this);
   }
+
   loadCommentsFromServer() {
     axios.get(this.props.url)
     .then(res => {
       this.setState({ data: res.data });
     })
   }
+
   handleCommentSubmit(comment) {
     let comments = this.state.data;
     comment.id = Date.now();
@@ -32,21 +32,26 @@ class CommentBox extends Component {
       this.setState({ data: comments });
     });
   }
-  handleCommentDelete(id){
-    axios.delete('${this.props.url}/${id}')
+
+  handleCommentDelete(id) {
+    axios.delete(`${this.props.url}/${id}`)
     .then(res => {
-      console.log('Comment Deleted');
+      console.log(‘Comment deleted’);
     })
+
     .catch(err => {
       console.error(err);
-    })
+    });
   }
-  handleCommentUpdate(id, comment){
-    axios.put('${this.props.url}/${id}', comment)
+
+  handleCommentUpdate(id, comment) {
+    //sends the comment id and new author/text to our api
+    axios.put(`${this.props.url}/${id}`, comment)
     .catch(err => {
       console.log(err);
     })
   }
+
   componentDidMount() {
     this.loadCommentsFromServer();
     setInterval(this.loadCommentsFromServer, this.props.pollInterval);
@@ -54,8 +59,11 @@ class CommentBox extends Component {
   render() {
     return (
       <div style={ style.commentBox }>
-      <h2>Comments:</h2>
-      <CommentList data={ this.state.data }/>
+      <h2 style={ style.title }>Comments:</h2>
+      <CommentList
+      onCommentDelete={ this.handleCommentDelete }
+      onCommentUpdate={ this.handleCommentUpdate }
+      data={ this.state.data }/>
       <CommentForm onCommentSubmit={ this.handleCommentSubmit }/>
       </div>
     )

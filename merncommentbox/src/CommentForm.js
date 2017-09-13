@@ -1,6 +1,7 @@
 //CommentForm.js
 import React, { Component } from 'react';
 import style from './style';
+
 class CommentForm extends Component {
   constructor(props) {
     super(props);
@@ -9,9 +10,11 @@ class CommentForm extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleAuthorChange(e) {
     this.setState({ author: e.target.value });
   }
+
   handleTextChange(e) {
     this.setState({ text: e.target.value });
   }
@@ -26,6 +29,7 @@ class CommentForm extends Component {
     this.props.onCommentSubmit({ author: author, text: text });
     this.setState({ author: '', text: '' });
   }
+
   render() {
     return (
       <form style={ style.commentForm } onSubmit={ this.handleSubmit }>
@@ -44,7 +48,7 @@ class CommentForm extends Component {
       <input
       type='submit'
       style={ style.commentFormPost }
-      value='Post' />
+      value='Post'/>
       </form>
     )
   }
