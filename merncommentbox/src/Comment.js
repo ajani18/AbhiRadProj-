@@ -17,13 +17,11 @@ class Comment extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleCommentUpdate = this.handleCommentUpdate.bind(this);
   }
-
   updateComment(e) {
     e.preventDefault();
     //brings up the update field when we click on the update link.
     this.setState({ toBeUpdated: !this.state.toBeUpdated });
   }
-
   handleCommentUpdate(e) {
     e.preventDefault();
     let id = this.props.uniqueID;
@@ -39,27 +37,22 @@ class Comment extends Component {
       text: ''
     })
   }
-
   deleteComment(e) {
     e.preventDefault();
     let id = this.props.uniqueID;
     this.props.onCommentDelete(id);
     console.log('oops deleted');
   }
-
   handleTextChange(e) {
     this.setState({ text: e.target.value });
   }
-
   handleAuthorChange(e) {
     this.setState({ author: e.target.value });
   }
-
   rawMarkup() {
     let rawMarkup = marked(this.props.children.toString());
     return { __html: rawMarkup };
   }
-
   render() {
     return (
       <div style={ style.comment }>

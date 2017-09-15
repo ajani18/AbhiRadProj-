@@ -9,10 +9,10 @@ class CommentList extends Component {
       return (
         <Comment
         author={ comment.author }
-        uniqueID={ comment[‘_id’] }
+        uniqueID={ comment['_id'] }
         onCommentDelete={ this.props.onCommentDelete }
         onCommentUpdate={ this.props.onCommentUpdate }
-        key={ comment[‘_id’] }>
+        key={ comment['_id'] }>
         { comment.text }
         </Comment>
       )

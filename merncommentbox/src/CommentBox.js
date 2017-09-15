@@ -1,9 +1,9 @@
 //CommentBox.js
-import React, { Component } from ‘react’;
-import axios from ‘axios’;
-import CommentList from ‘./CommentList’;
-import CommentForm from ‘./CommentForm’;
-import style from ‘./style’;
+import React, { Component } from 'react';
+import axios from 'axios';
+import CommentList from './CommentList';
+import CommentForm from './CommentForm';
+import style from './style';
 class CommentBox extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +36,7 @@ class CommentBox extends Component {
   handleCommentDelete(id) {
     axios.delete(`${this.props.url}/${id}`)
     .then(res => {
-      console.log(‘Comment deleted’);
+      console.log('Comment deleted');
     })
 
     .catch(err => {

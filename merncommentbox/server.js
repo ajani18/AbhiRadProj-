@@ -13,7 +13,7 @@ var router = express.Router();
 var port = process.env.API_PORT || 3001;
 
 // db config
-mongoose.connect("mongodb://abhijani:beastmode17@testcluster-shard-00-00-odrn0.mongodb.net:27017,testcluster-shard-00-01-odrn0.mongodb.net:27017,testcluster-shard-00-02-odrn0.mongodb.net:27017/test?ssl=true&replicaSet=testcluster-shard-0&authSource=admin");
+mongoose.connect("mongodb://abhijani18:bea$tmode17@cluster0-shard-00-00-ikp57.mongodb.net:27017,cluster0-shard-00-01-ikp57.mongodb.net:27017,cluster0-shard-00-02-ikp57.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin");
 
 // models
 var Comment = require('./model/comments');
@@ -64,6 +64,7 @@ router.route('/comments')
 })
 //post new comment to the database
 .post(function(req, res) {
+  console.log("Post has been added!");
   var comment = new Comment();
   //body parser lets us use the req.body
   comment.author = req.body.author;
@@ -72,6 +73,7 @@ router.route('/comments')
     if (err)
     res.send(err);
     res.json({ message: 'Comment successfully added!' });
+
   });
 })
 //Use our router configuration when we call /api
