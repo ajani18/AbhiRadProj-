@@ -29,14 +29,14 @@
             var count;
             document.write("Starting Loop" + "<br />");
 
-            for(count = 0; count <= 10; count= count + 4){
+            for(count = 0; count <= 10; count = count + 4){
                document.write("Current Count : " + count );
                document.write("<br />");
             }
 
             document.write("Loop stopped!");
          //-->
-         //output prints Current Count : 0,4,8 
+         //output prints Current Count : 0,4,8
 
 
       </script>
