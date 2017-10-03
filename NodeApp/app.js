@@ -41,6 +41,10 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// app.set('port', 8080);
+//   server = app.listen(app.get('port'), function(){
+//   console.log("server listening on port " + app.get('port'));
+// });
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
