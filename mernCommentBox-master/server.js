@@ -15,9 +15,7 @@ var router = express.Router();
 var port = process.env.API_PORT || 3001;
 
 //db config -- REPLACE USERNAME/PASSWORD/DATABASE WITH YOUR OWN FROM MLAB!
-var mongoDB = "mongodb://abhijani18:bea$tmode17@cluster0-shard-00-00-ikp57.mongodb.net:27017,cluster0-shard-00-01-ikp57.mongodb.net:27017,cluster0-shard-00-02-ikp57.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
-mongoose.connect(mongoDB, { useMongoClient: true })
-var db = mongoose.connection;
+var mongoDB = 'mongodb://abhijani123:beastmode17@cluster0-shard-00-00-8t9ca.mongodb.net:27017,cluster0-shard-00-01-8t9ca.mongodb.net:27017,cluster0-shard-00-02-8t9ca.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //now we should configure the APi to use bodyParser and look for JSON data in the body
