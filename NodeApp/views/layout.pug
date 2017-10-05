@@ -20,11 +20,12 @@ html
                   a(href="#")
                     Start Bootstrap
               li
-                a(href="#")
-                   Mr.Jones
+                a(href="#") Mr.Jones
               li
-                  a(href="#") 
-                    About
+                a(href="#") About
+              li
+                a(href="#") Dylon Hill
+                    
   
       div(id="page-content-wrapper")
         block content
@@ -37,6 +38,13 @@ html
       script(scr='/javascripts/buttonToggle.js')
       script(src="/vendor/popper/popper.min.js")
       script(src="/vendor/bootstrap/js/bootstrap.min.js") 
+      script.
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    
+        
       
       
 

@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://abhijani123:beastmode17@cluster0-shard-00-00-8t9ca.mongodb.net:27017,cluster0-shard-00-01-8t9ca.mongodb.net:27017,cluster0-shard-00-02-8t9ca.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
@@ -16,6 +17,7 @@ console.log("We have connected");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var getGraph = require('./public/javascripts/dataVisual');
 
 var app = express();
 
