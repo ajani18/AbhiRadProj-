@@ -1,16 +1,16 @@
 var mongoose = require('mongoose');
-var Data = require('../models/data');
+var Data = require('./models/data');
 var app = require('./app');
 var d3 = require("d3");
 // Set the dimensions of the canvas / graph
-var date = [];
+var data = [];
 
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 600 - margin.left - margin.right,
     height = 270 - margin.top - margin.bottom;
 
-// Parse the date / time
-// var parseDate = d3.time.format("%d-%b-%y").parse;
+Parse the date / time
+var parseDate = d3.time.format("%d-%b-%y").parse; commented out
 getData();
 
 function getData() {
@@ -27,7 +27,7 @@ function getData() {
   });
 
 }
-// console.log("Hello");
+console.log("Hello");
 
 // Set the ranges
 function graphData(){
@@ -56,8 +56,7 @@ function graphData(){
           .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
 
-  // Get the data
-  // d3.csv("/javascripts/energy.csv", function(error, data) {
+  // d3.csv("/javascripts/energy.csv", function(error, data) { //indentation?
   //     data.forEach(function(d) {
   //         d.date = parseDate(d.date);
   //         d.close = +d.close;
@@ -84,6 +83,4 @@ function graphData(){
           .call(yAxis);
 
   // });
-
-
 }

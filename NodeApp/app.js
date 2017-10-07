@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose = require('mongoose');
 
+
 mongoose.connect('mongodb://abhijani123:beastmode17@cluster0-shard-00-00-8t9ca.mongodb.net:27017,cluster0-shard-00-01-8t9ca.mongodb.net:27017,cluster0-shard-00-02-8t9ca.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -35,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-
+// app.use('/classes', classes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

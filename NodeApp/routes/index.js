@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Data = require('../models/data'); //bring in schema (how data is orgnaized in database)
+var Data = require('./models/data'); //bring in schema (how data is orgnaized in database)
 
 
 /* GET home page. */
