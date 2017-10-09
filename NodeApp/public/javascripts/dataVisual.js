@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Data = require('./models/data');
+var Data = require('./dataModels/data');
 var app = require('./app');
 var d3 = require("d3");
 // Set the dimensions of the canvas / graph
@@ -9,8 +9,7 @@ var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 600 - margin.left - margin.right,
     height = 270 - margin.top - margin.bottom;
 
-Parse the date / time
-var parseDate = d3.time.format("%d-%b-%y").parse; commented out
+// var parseDate = d3.time.format("%d-%b-%y").parse;
 getData();
 
 function getData() {

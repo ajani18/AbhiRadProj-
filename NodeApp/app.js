@@ -18,7 +18,8 @@ console.log("We have connected");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var getGraph = require('./public/javascripts/dataVisual');
+var classes = require('./routes/classes');
+// var getGraph = require('./public/javascripts/dataVisual');
 
 var app = express();
 
@@ -36,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-// app.use('/classes', classes);
+app.use('/classes', classes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
