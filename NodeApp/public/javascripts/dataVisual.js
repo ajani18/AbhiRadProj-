@@ -1,35 +1,37 @@
-var mongoose = require('mongoose');
-var Data = require('./dataModels/data');
-var app = require('./app');
-var d3 = require("d3");
+queue()
+  .defer(d3.json, "/classes")
+  .await(graphData);
+// var mongoose = require('mongoose');
+// var Data = require('./dataModels/data');
+// var app = require('./app');
+// var d3 = require("d3");
 // Set the dimensions of the canvas / graph
-var data = [];
 
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 600 - margin.left - margin.right,
     height = 270 - margin.top - margin.bottom;
 
 // var parseDate = d3.time.format("%d-%b-%y").parse;
-getData();
-
-function getData() {
-  Data
-  .find()
-  .sort()
-  .exec(function (err, docs) {
-    if(err) return console.error(err);
-    else {
-        data = docs; //data = docs in database
-        graphData();
-
-    }
-  });
-
-}
+// getData();
+//
+// function getData() {
+//   Data
+//   .find()
+//   .sort()
+//   .exec(function (err, docs) {
+//     if(err) return console.error(err);
+//     else {
+//         data = docs; //data = docs in database
+//         graphData();
+//
+//     }
+//   });
+//
+// }
 console.log("Hello");
 
 // Set the ranges
-function graphData(){
+function graphData(err, data){
 
   var x = d3.time.scale().range([0, width]);
   var y = d3.scale.linear().range([height, 0]);
@@ -44,7 +46,7 @@ function graphData(){
   // Define the line
   var valueline = d3.svg.line()
       .x(function(d) { return x(d.date); })
-      .y(function(d) { return y(d.close); });
+      .y(function(d) { return y(d.temp); });
 
   // Adds the svg canvas
   var svg = d3.select("body")
@@ -63,7 +65,7 @@ function graphData(){
   //
       // Scale the range of the data
       x.domain(d3.extent(data, function(d) { return d.date; }));
-      y.domain([0, d3.max(data, function(d) { return d.close; })]);
+      y.domain([0, d3.max(data, function(d) { return d.temp; })]);
 
       // Add the valueline path.
       svg.append("path")
