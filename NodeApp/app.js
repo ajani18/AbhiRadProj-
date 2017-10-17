@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+var favicon = require('serve-favicon'); //icon
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -8,7 +8,6 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://abhijani123:beastmode17@cluster0-shard-00-00-8t9ca.mongodb.net:27017,cluster0-shard-00-01-8t9ca.mongodb.net:27017,cluster0-shard-00-02-8t9ca.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -19,6 +18,7 @@ console.log("We have connected");
 var index = require('./routes/index');
 var users = require('./routes/users');
 var classes = require('./routes/classes');
+var makerSpace = require('./routes/MakerSpace');
 // var getGraph = require('./public/javascripts/dataVisual');
 
 var app = express();
@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/classes', classes);
+app.use('/MakerSpace', MakerSpace);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

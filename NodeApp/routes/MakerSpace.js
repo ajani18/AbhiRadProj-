@@ -12,9 +12,9 @@ var MongoClient =  require('mongodb').MongoClient
 router.get('/', function(req, res, next) {
   MongoClient.connect('mongodb://abhijani123:beastmode17@cluster0-shard-00-00-8t9ca.mongodb.net:27017,cluster0-shard-00-01-8t9ca.mongodb.net:27017,cluster0-shard-00-02-8t9ca.mongodb.net:27017/RAD?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin', function(err, db) {
     if(err) { return console.dir(err); }
-      var collection = db.collection('MrJones');
-        collection.find().toArray(function(err, dataJones){
-          res.json(dataJones); //
+      var collection = db.collection('MakerSpace');
+        collection.find().toArray(function(err, dataMakerSpace){
+          res.json(dataMakerSpace); //
         });
     });
   });
