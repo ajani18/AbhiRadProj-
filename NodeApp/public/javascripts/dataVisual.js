@@ -10,8 +10,11 @@ queue()
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
 width = 600 - margin.left - margin.right,
 height = 270 - margin.top - margin.bottom;
-
-// var parseDate = d3.time.format("%d-%b-%y").parse;
+// 2017-10-09T19:01:00.000Z
+//var parseDate = d3.utcParse("%Y-%m-%dT%H:%M%S.000Z");
+var parseDate = d3.utcParse("%Y-%m-%dT%H:%M:%S.%LZ");
+// console.log(parseDate("2017-10-09T24:01:00.000"));
+graphData();
 // getData();
 //
 // function getData() {
@@ -28,12 +31,12 @@ height = 270 - margin.top - margin.bottom;
 //   });
 //
 // }
-console.log("Hello");
+// console.log("Hello");
 
 // Set the ranges
 function graphData(err, data){
 
-  console.log(data);
+  // console.log(data);
 
   var x = d3.time.scale().range([0, width]);
   var y = d3.scale.linear().range([height, 0]);
@@ -47,10 +50,10 @@ function graphData(err, data){
 
   // Define the line
   var valueline = d3.svg.line()
-  .x(function(d) {
-    var date = new Date(d.date);
-    console.log(date.getDate()  );
-    return x(date.getDate ());
+  .x(function(d, i) {
+    // var date = new Date();
+    // console.log(date.getDate()  );
+    return x(parseDate(d.date));
   })
   .y(function(d) { return y(d.temp); });
 
@@ -70,13 +73,17 @@ function graphData(err, data){
   //     });
   //
   // Scale the range of the data
-  x.domain(d3.extent(data, function(d) { return d.date; }));
+  x.domain(d3.extent(data, function(d) {
+    // console.log(parseDate(d.date));
+    return parseDate(d.date); }));
   y.domain([0, d3.max(data, function(d) { return d.temp; })]);
 
   // Add the valueline path.
   svg.append("path")
   .attr("class", "line")
-  .attr("d", valueline(data));
+  .attr("d", valueline(data))
+  .attr("stroke", "black")
+  .attr("fill", "none");
 
   // Add the X Axis
   svg.append("g")
@@ -88,6 +95,21 @@ function graphData(err, data){
   svg.append("g")
   .attr("class", "y axis")
   .call(yAxis);
+
+  svg.append("text")
+    .attr("transform",
+          "translate(" + (width/2) + " ," +
+                           (height + margin.top + 20) + ")")
+    .style("text-anchor", "middle")
+    .text("Date");
+
+   svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("F");
 
   // });
 }
