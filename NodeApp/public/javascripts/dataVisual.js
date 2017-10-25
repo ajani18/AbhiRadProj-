@@ -11,9 +11,10 @@ var margin = {top: 30, right: 20, bottom: 30, left: 50},
 width = 600 - margin.left - margin.right,
 height = 270 - margin.top - margin.bottom;
 // 2017-10-09T19:01:00.000Z
-//var parseDate = d3.utcParse("%Y-%m-%dT%H:%M%S.000Z");
+
 var parseDate = d3.utcParse("%Y-%m-%dT%H:%M:%S.%LZ");
-// console.log(parseDate("2017-10-09T24:01:00.000"));
+var bisectDate = d3.bisector(function (d) { return parseDate(d.date); }).left;
+
 graphData();
 // getData();
 //
@@ -97,19 +98,48 @@ function graphData(err, data){
   .call(yAxis);
 
   svg.append("text")
-    .attr("transform",
-          "translate(" + (width/2) + " ," +
-                           (height + margin.top + 20) + ")")
-    .style("text-anchor", "middle")
-    .text("Date");
+  .attr("transform", "rotate(-90)")
+  .attr("y", 0 - margin.left)
+  .attr("x",0 - (height / 2))
+  .attr("dy", "1em")
+  .style("text-anchor", "middle")
+  .text("F°");
 
-   svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("F");
+  svg.append("text")
+  .attr("transform",
+        "translate(" + (width/2) + " ," +
+                       (height + margin.top + 20) + ")")
+  .style("text-anchor", "middle")
+  .text("Date");
+
+  var focus = svg.append("g")
+      .attr("class", "focus")
+      .style("display", "none");
+
+  focus.append("circle")
+      .attr("r", 4.5);
+
+  focus.append("text")
+      .attr("x", 9)
+      .attr("dy", ".35em");
+
+  svg.append("rect")
+      .attr("class", "overlay")
+      .attr("width", width)
+      .attr("height", height)
+      .on("mouseover", function () { focus.style("display", null); })
+      .on("mouseout", function () { focus.style("display", "none"); })
+      .on("mousemove", mousemove);
+
+  function mousemove() {
+      var x0 = x.invert(d3.mouse(this)[0]),
+          i = bisectDate(data, x0, 1),
+          d0 = data[i - 1],
+          d1 = data[i],
+          d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+      focus.attr("transform", "translate(" + x(parseDate(d.date)) + "," + y(d.temp) + ")");
+      focus.select("text").text((d.temp));
+  }
 
   // });
 }

@@ -7,3 +7,4 @@ var classSchema = mongoose.Schema({
 var Data = mongoose.model('Data', classSchema);
 
 module.exports = Data; //exporting
+//it helps send the data to the database in a specific way 

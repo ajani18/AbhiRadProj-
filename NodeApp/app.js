@@ -18,7 +18,7 @@ console.log("We have connected");
 var index = require('./routes/index');
 var users = require('./routes/users');
 var classes = require('./routes/classes');
-var makerSpace = require('./routes/MakerSpace');
+//var makerSpace = require('./routes/MakerSpace');
 // var getGraph = require('./public/javascripts/dataVisual');
 
 var app = express();
