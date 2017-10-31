@@ -1,11 +1,7 @@
 queue()
 .defer(d3.json, "/classes")
 .await(graphData);
-// var mongoose = require('mongoose');
-// var Data = require('./dataModels/data');
-// var app = require('./app');
-// var d3 = require("d3");
-// Set the dimensions of the canvas / graph
+
 
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
 width = 600 - margin.left - margin.right,
@@ -69,13 +65,12 @@ function graphData(err, data){
 
   // d3.csv("/javascripts/energy.csv", function(error, data) { //indentation?
   //     data.forEach(function(d) {
-  //         d.date = parseDate(d.date);
+  //         d.date  = parseDate(d.date);
   //         d.close = +d.close;
   //     });
   //
   // Scale the range of the data
   x.domain(d3.extent(data, function(d) {
-    // console.log(parseDate(d.date));
     return parseDate(d.date); }));
   y.domain([0, d3.max(data, function(d) { return d.temp; })]);
 
@@ -83,7 +78,7 @@ function graphData(err, data){
   svg.append("path")
   .attr("class", "line")
   .attr("d", valueline(data))
-  .attr("stroke", "black")
+  .attr("stroke", "#FF00FF")
   .attr("fill", "none");
 
   // Add the X Axis
@@ -103,7 +98,7 @@ function graphData(err, data){
   .attr("x",0 - (height / 2))
   .attr("dy", "1em")
   .style("text-anchor", "middle")
-  .text("F°");
+  .text("Temperature(F°)");
 
   svg.append("text")
   .attr("transform",

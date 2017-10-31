@@ -1,0 +1,3 @@
+C:\Users\abhijani18\Google Drive\12th Grade\Advanced Topics in CS\Advanced Topics in CS GitHub\DashBoard\obj\Debug\Dash.njsprojResolveAssemblyReference.cache
+C:\Users\abhijani18\Google Drive\12th Grade\Advanced Topics in CS\Advanced Topics in CS GitHub\DashBoard\obj\Debug\Dash.njsproj.CoreCompileInputs.cache
+C:\Users\abhijani18\Google Drive\12th Grade\Advanced Topics in CS\Advanced Topics in CS GitHub\DashBoard\bin\Microsoft.NodejsTools.WebRole.dll

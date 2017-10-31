@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Dash", "Dash.njsproj", "{27AB4DCB-58EA-45AB-9AD0-3226CF275C21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27AB4DCB-58EA-45AB-9AD0-3226CF275C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AB4DCB-58EA-45AB-9AD0-3226CF275C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AB4DCB-58EA-45AB-9AD0-3226CF275C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AB4DCB-58EA-45AB-9AD0-3226CF275C21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1235287-1C01-4869-9E26-A08F4A1F6F72}
+	EndGlobalSection
+EndGlobal
