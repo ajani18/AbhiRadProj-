@@ -19,6 +19,7 @@
     <Content Include="package.json" />
     <Compile Include="app.js" />
     <Compile Include="dataModels\data.js" />
+    <Compile Include="routes\classesData.js" />
     <Compile Include="routes\classes.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\MakerSpace.js" />

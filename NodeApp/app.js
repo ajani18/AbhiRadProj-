@@ -17,6 +17,7 @@ console.log("We have connected");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var classesData = require('./routes/classesData');
 var classes = require('./routes/classes');
 //var makerSpace = require('./routes/MakerSpace');
 // var getGraph = require('./public/javascripts/dataVisual');
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/classesdata', classesData);
 app.use('/classes', classes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

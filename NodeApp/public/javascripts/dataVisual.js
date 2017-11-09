@@ -1,5 +1,5 @@
 queue()
-.defer(d3.json, "/classes")
+.defer(d3.json, "/classes?class=mrjones")
 .await(graphData);
 
 
