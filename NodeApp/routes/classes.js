@@ -7,18 +7,18 @@ var MongoClient = require('mongodb').MongoClient
     , assert = require('assert');
 
 /* GET home page. */
-router.get('/:class', function (req, res, next) {
-    var chooseRoom = req.params.class;
-    if (chooseRoom == "mrjones") {
+router.get('/mrjones', function (req, res, next) {
         res.render('index', {
-            title: "Makerspace"
+            title: "Mr. Jones' Classroom Data"
         })
-    }   else if (chooseRoom == "makerspace") {
-        console.log("makerrr");
-        
+    });
 
-    }
-});
+router.get('/makerspace', function (req, res, next) {
+       	res.render('index', {
+       		title: "Maker Space's Data"
+       	})
+       
+	});
 
 
 

@@ -4,9 +4,17 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  div(style="width: 210px;")
+
+  iframe(style="display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=75822" width="210" height="228" frameborder="0" scrolling="no")
+
+  a(style="display: block;height: 20px;z-index: 1;position: relative;margin: -20px 0 0 0;text-indent: -9999em" href="https://www.willyweather.com/la/orleans-parish/new-orleans.html" rel="nofollow")
+
+  p
+
   div(id="chart")
-  p data.length 
-  p hi
+
   script(src="/javascripts/d3.js")
   script(src='/javascripts/queue.js')
   script(src='/javascripts/dataVisual.js')
