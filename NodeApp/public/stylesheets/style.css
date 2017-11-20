@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+#menu-toggle { 
+	margin-left: -15px;
+	margin-top: -5px;
+	font-size: 23px;
+ }
+
+.centerDiv{
+	width:100%;
+}
+
+.innerCenterDiv {
+	margin: 0 auto;
+	width: 800px;
+}
+
+ #chart {
+ 	
+ }
+
+ .filter {
+ 	margin: 5px;
+ 	width: 120px;
+ }
+
+ #filterSide {
+ 	margin-top: 25px;
+ }
