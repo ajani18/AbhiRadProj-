@@ -8,10 +8,12 @@ block content
   div(class="centerDiv")
     div(class="innerCenterDiv row")
       div(id="filterSide" class="col-2")
-         button(type="button" class="btn btn-primary filter") Humidity
-         button(type="button" class="btn btn-primary filter") Temperature 
+         button(type="button" class="btn btn-primary filter" onclick="graphHumidity()") Humidity
+         button(type="button" class="btn btn-primary filter" onclick="graphTemp()") Temperature 
       div(id="chart" class="col-10")
+
 
   script(src="/javascripts/d3.js")
   script(src='/javascripts/queue.js')
   script(src='/javascripts/dataVisual.js')
+  
