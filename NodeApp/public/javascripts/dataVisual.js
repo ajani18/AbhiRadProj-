@@ -1,7 +1,8 @@
 var  url =  window.location.href;
-var num = url.indexOf('classes/'); //get index of before classes 
+var num = url.indexOf('classes/'); //get index of before classes
 var courseClass = url.slice(num + 8);
 console.log(courseClass);
+//console.log(data.length);
 
 var storedData = [];
 
@@ -210,7 +211,7 @@ function graphTemp() {
 
 }
 
-function graphHumidity() { 
+function graphHumidity() {
 
   data = storedData;
 
@@ -274,4 +275,3 @@ function graphOneDay() {
 
 
 }
-
