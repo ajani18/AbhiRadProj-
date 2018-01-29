@@ -1,13 +1,14 @@
 body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-color: #00ff6e */
 }
 
 a {
   color: #00B7FF;
 }
 
-#menu-toggle { 
+#menu-toggle {
 	margin-left: -15px;
 	margin-top: -5px;
 	font-size: 23px;
@@ -23,7 +24,7 @@ a {
 }
 
  #chart {
- 	
+
  }
 
  .filter {

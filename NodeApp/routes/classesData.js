@@ -15,15 +15,15 @@ router.get('/mrjones', function (req, res, next) {
                 res.json(dataJones); //
             });
         });
-}); //allows classesdata 
+}); //allows classesdata
 
 router.get('/makerspace', function (req, res, next) {
      MongoClient.connect('mongodb://abhijani123:Beastmode17@cluster0-shard-00-00-8t9ca.mongodb.net:27017,cluster0-shard-00-01-8t9ca.mongodb.net:27017,cluster0-shard-00-02-8t9ca.mongodb.net:27017/testing?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin', function (err, db) {
             if (err) { return console.dir(err); }
             var collection = db.collection('makerspace');
-            //new ISODate("2017-11-21T00:00:00Z") 
-            collection.find().sort({ timestamp: -1 }).toArray(function (err, dataMakerSpace) { 
-                res.json(dataMakerSpace); 
+            //new ISODate("2017-11-21T00:00:00Z")
+            collection.find().sort({ "timestamp": -1 }).limit(10000).toArray(function (err, dataMakerSpace) {
+                res.json(dataMakerSpace);
             });
         });
 });
